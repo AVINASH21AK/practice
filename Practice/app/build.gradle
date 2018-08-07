@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.practice"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.0'
+
+    //Gallery Picker
+    implementation 'com.github.nileshpambhar:MultiPhotoPicker:v1.2'
+
+    //Butter Knife - BindView
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // retrofit, gson
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // for the image loading
+    implementation 'com.facebook.fresco:fresco:0.11.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //recycleview
+    implementation "com.android.support:recyclerview-v7:$rootProject.recyclerviewV7Version"
+
+
+
+
+    //Quickblox
+    implementation "com.quickblox:quickblox-android-sdk-chat:$rootProject.qbSdkVersion" //include only necessary module dependency, all transitive modules will be included automatically
+    implementation "com.quickblox:quickblox-android-sdk-content:$rootProject.qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-messages:$rootProject.qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-customobjects:$rootProject.qbSdkVersion"
+
+}
+repositories {
+    mavenCentral()
+}
